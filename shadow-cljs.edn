@@ -1,0 +1,26 @@
+{:source-paths ["src"]
+
+   :dependencies []
+
+   :builds
+   {:app
+    {:target :node-script
+     :output-to "out/bot.js"
+     :output-dir "out"
+     :main qrbot.core/main
+
+     :devtools
+     {:after-load qrbot.core/reload
+      :preloads []}
+
+     :compiler-options
+     {:optimizations :simple
+      :source-map true}}
+
+    :release
+    {:target :node-script
+     :output-to "dist/bot.js"
+     :main qrbot.core/main
+     :compiler-options
+     {:optimizations :advanced
+      :source-map false}}}}
