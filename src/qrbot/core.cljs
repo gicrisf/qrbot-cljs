@@ -150,6 +150,3 @@ Use /set_png for PNG or /set_svg for SVG."]
 ;; Main entry point for production
 (defn main []
   (start!))
-
-;; Auto-start on initial load
-(defonce _init (start!))
