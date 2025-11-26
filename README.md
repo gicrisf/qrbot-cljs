@@ -47,6 +47,20 @@ npx shadow-cljs release app
 node out/bot.js
 ```
 
+## Docker
+
+Build the Docker image:
+
+```bash
+docker build -t qrbot-cljs .
+```
+
+Run the container:
+
+```bash
+docker run -d --name qrbot-container -e "TELEGRAM_TOKEN=<TOKEN>" qrbot-cljs
+```
+
 ## Commands
 
 - `/start` - display the welcome message.
