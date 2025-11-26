@@ -3,7 +3,8 @@
 
   This namespace provides Clojure-friendly functions for interacting with
   the Telegram Bot API, hiding JavaScript interop details."
-  (:require [qrbot.fs :as fs]))
+  (:require [qrbot.fs :as fs]
+            [clojure.set]))
 
 (def TelegramBot (js/require "node-telegram-bot-api"))
 
