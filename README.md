@@ -4,12 +4,27 @@ A Telegram bot that generates QR codes. ClojureScript version of [qrbot](https:/
 
 Users can send any text, and the bot will create a QR code in either PNG or SVG format.
 
-## Prerequisites
+## Deployment
+
+Download the latest release tarball from [GitHub Releases](https://github.com/gicrisf/qrbot-cljs/releases), then extract and run:
+
+```bash
+tar -xzf qrbot-cljs-release.tar.gz
+cd release-package
+docker build -t qrbot .
+docker run -d --name qrbot -e "TELEGRAM_TOKEN=<TOKEN>" qrbot
+```
+
+The release package includes everything needed to run the bot without requiring Node.js, Java, or building from source. The deployment Docker image uses Bun and only runs the pre-compiled JavaScript. For the development Docker that compiles from source, see below.
+
+## Development
+
+### Prerequisites
 
 - Node.js
 - Java 21
 
-## Installation
+### Installation
 
 Clone the repository:
 
@@ -32,7 +47,7 @@ Set up environment variables:
 TELEGRAM_TOKEN=your_telegram_bot_token
 ```
 
-## Running the Bot
+### Running the Bot
 
 Development build with watch mode:
 
@@ -47,9 +62,9 @@ npx shadow-cljs release app
 node out/bot.js
 ```
 
-## Docker
+### Building with Docker
 
-Build the Docker image:
+Build the Docker image from source:
 
 ```bash
 docker build -t qrbot-cljs .
